@@ -1,0 +1,23 @@
+project_root/
+│
+├── server.js
+├── url.js
+├── token/
+│   └── token.js
+├── model/
+│   ├── User.js
+│   ├── Cart.js
+│   └── Product.js
+├── apis/
+│   ├── userApis.js
+│   ├── productApis.js
+│   └── cartApis.js
+├── routes/
+│   ├── userRoutes.js
+│   ├── productRoutes.js
+│   └── cartRoutes.js
+├── public/
+│   ├── index.html
+│   ├── styles.css
+│   └── scripts.js
+└── package.json
