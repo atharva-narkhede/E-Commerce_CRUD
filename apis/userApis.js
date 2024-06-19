@@ -1,44 +1,3 @@
-/*const User = require('../model/User');
-
-const user_all = async (req, res) => {
-    try {
-        const users = await User.find();
-        res.json(users);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-};
-
-const insert_user = async (req, res) => {
-    const user = new User(req.body);
-    try {
-        const newUser = await user.save();
-        res.status(201).json(newUser);
-    } catch (error) {
-        res.status(400).json({ message: error.message });
-    }
-};
-
-const update_user = async (req, res) => {
-    try {
-        const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
-        res.json(updatedUser);
-    } catch (error) {
-        res.status(400).json({ message: error.message });
-    }
-};
-
-const delete_user = async (req, res) => {
-    try {
-        const deletedUser = await User.findByIdAndDelete(req.params.id);
-        res.json({ message: 'User deleted' });
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-};
-
-module.exports = { user_all, insert_user, update_user, delete_user };
-*/
 const User = require('../model/User');
 
 // Fetch all users
@@ -57,7 +16,6 @@ const fetch_users = async (req, res) => {
 // Insert a user
 const insert_user = async (req, res) => {
     const user = new User({
-        u_serid: req.body.u_serid,
         u_name: req.body.u_name,
         u_pwd: req.body.u_pwd,
         u_email: req.body.u_email,
@@ -76,16 +34,16 @@ const insert_user = async (req, res) => {
 
 // Update a user
 const update_user = async (req, res) => {
-    const u_serid = req.body.u_serid;
+    const u_email=req.body.u_email;
     const userUpdate = {
         u_name: req.body.u_name,
         u_pwd: req.body.u_pwd,
-        u_email: req.body.u_email,
         u_addr: req.body.u_addr,
-        u_contact: req.body.u_contact
+        u_contact: req.body.u_contact,
+        token:req.body.token
     };
     try {
-        const updatedUser = await User.updateOne({ u_serid }, userUpdate);
+        const updatedUser = await User.updateOne({ u_email }, userUpdate);
         if (updatedUser.modifiedCount != 0) {
             console.log('User Updated', updatedUser);
             res.send({ 'update': 'success' });
@@ -101,9 +59,9 @@ const update_user = async (req, res) => {
 
 // Delete a user
 const delete_user = async (req, res) => {
-    const u_serid = req.body.u_serid;
+    const u_email = req.body.u_email;
     try {
-        const deletedUser = await User.deleteOne({ u_serid });
+        const deletedUser = await User.deleteOne({ u_email });
         if (deletedUser.deletedCount != 0) {
             console.log('User Deleted');
             res.send({ 'delete': 'success' });

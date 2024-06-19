@@ -61,12 +61,11 @@ const productRoutes = require('./routes/productRoutes');
 const cartRoutes = require('./routes/cartRoutes');
 
 // Setup API routes
-app.use("/api/users", userRoutes); // Prefix with /api to clarify API route nature
+app.use("/api/users", userRoutes); 
 app.use("/api/products", productRoutes);
 app.use("/api/cart", cartRoutes);
 
-// Serve static files
-app.use(express.static('public'));
+
 
 // Define the server port
 const port = process.env.PORT || 8080;
