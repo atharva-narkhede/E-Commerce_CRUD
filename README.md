@@ -124,6 +124,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Atharva Narkhede - [Your Email](mailto:atharvan12345@gmail.com)
+Atharva Narkhede - [atharvan12345@gmail.com](mailto:atharvan12345@gmail.com)
 
 Project Link: [https://github.com/atharva-narkhede/E-Commerce_CRUD](https://github.com/atharva-narkhede/E-Commerce_CRUD)
